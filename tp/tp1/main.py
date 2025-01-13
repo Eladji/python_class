@@ -1,7 +1,11 @@
 
 import json
+import random
 from crewmember import CrewMember
+
+count = 0
 def init():
+    member = CrewMember().load()
     with open('default.json','r') as file:
             data = json.load(file)
     for crewmem in data["Foundation"]["CrewMembers"]["Operators"]:
@@ -29,10 +33,33 @@ def main():
         case 3:
             CrewMember.displaylist()
         case 4:
+            CrewMember.save()
             exit()
         case _:
             print("invalid choice")
-
+    count += 1 
+    if count == 5:
+        print("un evenement a eu lieu")
+        event = random.randint(0, 5)
+        match event:
+            case 0:
+                print("un membre est mort")
+                CrewMember.removefromlist(random.randint(0, len(CrewMember.crewlist)))
+            case 1:
+                print("un membre a gagné de l'expérience")
+                CrewMember.crewlist[random.randint(0, len(CrewMember.crewlist))].gainxp()
+            case 2:
+                print(" un membre a perdu de l'expérience")
+                CrewMember.crewlist[random.randint(0, len(CrewMember.crewlist))].losexp()
+            case 3:
+                print("un membre a gagné de la mana")
+                CrewMember.crewlist[random.randint(0, len(CrewMember.crewlist))].gainmana()
+            case 4:
+                print("un membre a perdu de la mana")
+                CrewMember.crewlist[random.randint(0, len(CrewMember.crewlist))].losemana()
+            case 5:
+                print("il ne c'est rien passé")
+        count = 0
 if __name__ == "__main__":
     init()
     while True:

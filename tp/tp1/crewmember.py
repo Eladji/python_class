@@ -1,10 +1,11 @@
 import json
+from pathlib import Path
 crewlist = []
 class CrewMember:
     def new(self):
         self.Lastname = input("enter le nom du membre\n")         
         self.firstname= input("enter le prenom du membre\n")
-        self.age:int = input("entrer l'age du membre\n")
+        self.age:int =  input("entrer l'age du membre\n")
         self.job:str = self.choosejob()
         self.gender:bool = input("entrer 1. pour homme et 0. pour femme\n")
         self.type:str = self.choosetype()
@@ -20,10 +21,33 @@ class CrewMember:
         self.gender:str = gender
         self.type:str = type
         self.Mana:int = Mana
+        self.xp:int = 0
         return self
-
+    def gainxp(self):
+        self.xp += 1
+        return
+    def losexp(self):
+        self.xp -= 1
+        return
+    def gainmana(self):
+        self.Mana += 1
+        return
+    def losmana(self):
+        self.Mana -= 1
+        return
+    def save(self):
+        with open('crew.json','w') as file:
+            json.dump(self.__dict__, file)
+        return
+    def load(self):
+        my_file = Path("crew.json")
+        if my_file.is_file():
+            with open('crew.json','r') as file:
+                data = json.load(file)
+            self.__dict__ = data
+        return
     def __str__(self)->str:
-        return f" {self.Lastname} {self.firstname}, {self.age} ans\n"
+        return f" {self.Lastname} {self.firstname}, {self.age} ans un {self.job}\n"
 
     def job(self)->str:
         match self.job:
