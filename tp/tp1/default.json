@@ -1,0 +1,83 @@
+{
+  "Foundation": {
+    "Fleet": {
+      "Name": "Galactica",
+      "NumberOfShips": 5,
+      "Commander": {
+        "FirstName": "Bel",
+        "LastName": "Riose"
+      },
+      "Ships": [
+        {
+          "Name": "Bayta",
+          "Type": "Merchant",
+          "Crew": 4,
+          "Status": "Operational"
+        },
+        {
+          "Name": "Dark Nebula",
+          "Type": "War",
+          "Crew": 5,
+          "Status": "Damaged"
+        },
+        {
+          "Name": "Fearless",
+          "Type": "War",
+          "Crew": 5,
+          "Status": "Operational"
+        },
+        {
+          "Name": "Unimara",
+          "Type": "Merchant",
+          "Crew": 5,
+          "Status": "Operational"
+        },
+        {
+          "Name": "Weinis",
+          "Type": "Merchant",
+          "Crew": 4,
+          "Status": "Damaged"
+        }
+      ]
+    },
+    "CrewMembers": {
+      "Types": ["Operator", "Mentalists"],
+      "Jobs": [
+        "Commander",
+        "Pilot",
+        "Merchant",
+        "Armorer",
+        "Maintenance",
+        "Technician"
+      ],
+      "Operators": [
+        {"FirstName": "Bel", "LastName": "Riose", "Gender": "M", "Age": 48, "Job": "Commander"},
+        {"FirstName": "Gaal", "LastName": "Dornick", "Gender": "F", "Age": 34, "Job": "Technician"},
+        {"FirstName": "Salvor", "LastName": "Hardin", "Gender": "F", "Age": 28, "Job": "Armorer"},
+        {"FirstName": "Hugo", "LastName": "Crast", "Gender": "M", "Age": 37, "Job": "Pilot"},
+        {"FirstName": "Jagger", "LastName": "Fount", "Gender": "M", "Age": 41, "Job": "Pilot"},
+        {"FirstName": "Hober", "LastName": "Mallow", "Gender": "M", "Age": 52, "Job": "Pilot"},
+        {"FirstName": "Lathan", "LastName": "Devers", "Gender": "M", "Age": 46, "Job": "Merchant"},
+        {"FirstName": "Limmar", "LastName": "Ponyets", "Gender": "M", "Age": 43, "Job": "Merchant"},
+        {"FirstName": "Novi", "LastName": "Sura", "Gender": "F", "Age": 25, "Job": "Maintenance"},
+        {"FirstName": "Ebling", "LastName": "Mis", "Gender": "M", "Age": 34, "Job": "Maintenance"},
+        {"FirstName": "Eskel", "LastName": "Gorov", "Gender": "M", "Age": 32, "Job": "Merchant"},
+        {"FirstName": "Fallom", "LastName": "", "Gender": "F", "Age": 28, "Job": "Pilot"},
+        {"FirstName": "Han", "LastName": "Pritcher", "Gender": "M", "Age": 31, "Job": "Armorer"},
+        {"FirstName": "Harlan", "LastName": "Branno", "Gender": "F", "Age": 38, "Job": "Maintenance"},
+        {"FirstName": "Lewis", "LastName": "Pirenne", "Gender": "M", "Age": 34, "Job": "Pilot"},
+        {"FirstName": "Munn", "LastName": "Compor", "Gender": "M", "Age": 27, "Job": "Technician"},
+        {"FirstName": "Yugo", "LastName": "Amary", "Gender": "M", "Age": 33, "Job": "Technician"},
+        {"FirstName": "Bayta", "LastName": "Darell", "Gender": "F", "Age": 48, "Job": "Maintenance"},
+        {"FirstName": "Toran", "LastName": "Darell", "Gender": "M", "Age": 52, "Job": "Technician"},
+        {"FirstName": "Stora", "LastName": "Gendibal", "Gender": "F", "Age": 35, "Job": "Technician"},
+        {"FirstName": "Jord", "LastName": "Commasson", "Gender": "M", "Age": 53, "Job": "Maintenance"}
+      ],
+      "Mentalists": [
+        {"FirstName": "Tellem", "LastName": "Bond", "Gender": "M", "Age": 48, "Mana": 100},
+        {"FirstName": "Yanna", "LastName": "Seldon", "Gender": "F", "Age": 52, "Mana": 100},
+        {"FirstName": "Joie", "LastName": "", "Gender": "F", "Age": 25, "Mana": 100}
+      ]
+    }
+  }
+}
