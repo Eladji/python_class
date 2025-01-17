@@ -1,9 +1,10 @@
-import Pilote, Technicien
-class Ship:
-    def __init__(self, name, Type, crew = [], state = "operational"):
+from classes.Pilote import Pilote
+from classes.Technicien import Technicien
+class Spaceship:
+    def __init__(self, name, Type, crew = [], state = "Opérationnel"):
         self.__name = name
         self.__Type = Type
-        self.__crew.list = crew
+        self.__crew = crew
         self.__state = state
 
     @property
@@ -35,9 +36,9 @@ class Ship:
         self.__state = value
 
     def append_member(self, Member):
-        if self.__crew.size <= 10:
+        if len(self.__crew) <= 10:
             self.__crew.append(Member)
-            print(f"{Member._first_name()} {Member._last_name()} a rejoint l'équipage")
+            print(f"{Member._first_name} {Member._last_name} a rejoint l'équipage")
         else:
             print("impossible d'ajouter de nouveau membre a l'équipage")
 
@@ -56,4 +57,4 @@ class Ship:
         return check[0] and check[1] == True
     def display_crew(self):
         for i in self.__crew:
-            print(f"{i._first_name()} {i._last_name()} {i._role()}\n")
+            print(f"{i._first_name} {i._last_name} {i._role}\n")

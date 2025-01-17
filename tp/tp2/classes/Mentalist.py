@@ -1,9 +1,9 @@
-import Member 
+from classes.Member import Member
 
 class Mentalist(Member):
 
     def __init__(self,first_name, last_name, gender, age, mana= 100, max_mana= 100):
-        super.__init__(first_name, last_name, gender, age)
+        super().__init__(first_name, last_name, gender, age)
         self.__mana = mana
         self.__max_mana = max_mana
 

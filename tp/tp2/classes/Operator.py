@@ -1,4 +1,4 @@
-import Member, Pilote, Technicien
+from classes.Member import Member
 class Operator(Member):
     def __init__(self, first_name, last_name, gender, age ,Role, exp = 0):
         super().__init__(first_name, last_name, gender, age)
