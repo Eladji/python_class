@@ -12,28 +12,32 @@
             "Equipage": [
                 {
                     "Type": "operator",
-                    "Nom": "Gaal Dornick",
+                    "Prenom": "Gaal",
+                    "Nom": "Dornick",
                     "Sexe": "Femme",
                     "Age": 34,
                     "Metier": "Technicien"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Salvor Hardin",
+                    "Prenom": "Salvor",
+                    "Nom": "Hardin",
                     "Sexe": "Femme",
                     "Age": 28,
                     "Metier": "Armurier"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Hugo Crast",
+                    "Prenom": "Hugo",
+                    "Nom": "Crast",
                     "Sexe": "Homme",
                     "Age": 37,
                     "Metier": "Pilote"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Lathan Devers",
+                    "Prenom": "Lathan",
+                    "Nom": "Devers",
                     "Sexe": "Homme",
                     "Age": 46,
                     "Metier": "Marchand"
@@ -47,35 +51,40 @@
             "Equipage": [
                 {
                     "Type": "operator",
-                    "Nom": "Jagger Fount",
+                    "Prenom": "Jagger",
+                    "Nom": "Fount",
                     "Sexe": "Homme",
                     "Age": 41,
                     "Metier": "Pilote"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Hober Mallow",
+                    "Prenom": "Hober",
+                    "Nom": "Mallow",
                     "Sexe": "Homme",
                     "Age": 52,
                     "Metier": "Pilote"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Limmar Ponyets",
+                    "Prenom": "Limmar",
+                    "Nom": "Ponyets",
                     "Sexe": "Homme",
                     "Age": 43,
                     "Metier": "Marchand"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Novi Sura",
+                    "Prenom": "Novi",
+                    "Nom": "Sura",
                     "Sexe": "Femme",
                     "Age": 25,
                     "Metier": "Entretien"
                 },
                 {
                     "Type": "mentalist",
-                    "Nom": "Tellem Bond",
+                    "Prenom": "Tellem",
+                    "Nom": "Bond",
                     "Sexe": "Homme",
                     "Age": 48,
                     "Mana": 100
@@ -89,35 +98,40 @@
             "Equipage": [
                 {
                     "Type": "operator",
-                    "Nom": "Fallom",
+                    "Prenom": "Fallom",
+                    "Nom": "",
                     "Sexe": "Femme",
                     "Age": 28,
                     "Metier": "Pilote"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Han Pritcher",
+                    "Prenom": "Han",
+                    "Nom": "Pritcher",
                     "Sexe": "Homme",
                     "Age": 31,
                     "Metier": "Armurier"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Harlan Branno",
+                    "Prenom": "Harlan",
+                    "Nom": "Branno",
                     "Sexe": "Femme",
                     "Age": 38,
                     "Metier": "Entretien"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Lewis Pirenne",
+                    "Prenom": "Lewis",
+                    "Nom": "Pirenne",
                     "Sexe": "Homme",
                     "Age": 34,
                     "Metier": "Pilote"
                 },
                 {
                     "Type": "mentalist",
-                    "Nom": "Yanna Seldon",
+                    "Prenom": "Yanna",
+                    "Nom": "Seldon",
                     "Sexe": "Femme",
                     "Age": 52,
                     "Mana": 100
@@ -131,35 +145,40 @@
             "Equipage": [
                 {
                     "Type": "operator",
-                    "Nom": "Eskel Gorov",
+                    "Prenom": "Eskel",
+                    "Nom": "Gorov",
                     "Sexe": "Homme",
                     "Age": 32,
                     "Metier": "Marchand"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Bayta Darell",
+                    "Prenom": "Bayta",
+                    "Nom": "Darell",
                     "Sexe": "Femme",
                     "Age": 48,
                     "Metier": "Entretien"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Toran Darell",
+                    "Prenom": "Toran",
+                    "Nom": "Darell",
                     "Sexe": "Homme",
                     "Age": 52,
                     "Metier": "Technicien"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Stora Gendibal",
+                    "Prenom": "Stora",
+                    "Nom": "Gendibal",
                     "Sexe": "Femme",
                     "Age": 35,
                     "Metier": "Technicien"
                 },
                 {
                     "Type": "mentalist",
-                    "Nom": "Joie",
+                    "Prenom": "Joie",
+                    "Nom": "",
                     "Sexe": "Femme",
                     "Age": 25,
                     "Mana": 100
@@ -173,28 +192,32 @@
             "Equipage": [
                 {
                     "Type": "operator",
-                    "Nom": "Jord Commasson",
+                    "Prenom": "Jord",
+                    "Nom": "Commasson",
                     "Sexe": "Homme",
                     "Age": 53,
                     "Metier": "Entretien"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Ebling Mis",
+                    "Prenom": "Ebling",
+                    "Nom": "Mis",
                     "Sexe": "Homme",
                     "Age": 34,
                     "Metier": "Entretien"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Munn Compor",
+                    "Prenom": "Munn",
+                    "Nom": "Compor",
                     "Sexe": "Homme",
                     "Age": 27,
                     "Metier": "Technicien"
                 },
                 {
                     "Type": "operator",
-                    "Nom": "Yugo Amary",
+                    "Prenom": "Yugo",
+                    "Nom": "Amary",
                     "Sexe": "Homme",
                     "Age": 33,
                     "Metier": "Technicien"

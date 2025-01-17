@@ -27,10 +27,10 @@ def init():
                 role_class = metier_map.get(crew["Metier"])
                 if role_class:
                     role_instance = role_class()
-                    operator = Operator(crew["Nom"], crew["Nom"], crew["Sexe"], crew["Age"], role_instance)
+                    operator = Operator(crew["Prenom"], crew["Nom"], crew["Sexe"], crew["Age"], role_instance)
                     ship.append_member(operator)
             elif crew["Type"] == "mentalist":
-                mentalist = Mentalist(crew["Nom"], crew["Nom"], crew["Sexe"], crew["Age"], crew["Mana"])
+                mentalist = Mentalist(crew["Prenom"], crew["Nom"], crew["Sexe"], crew["Age"], crew["Mana"])
                 ship.append_member(mentalist)
         fleet.append_spaceship(ship)
     return fleet
