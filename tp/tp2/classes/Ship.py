@@ -54,3 +54,6 @@ class Ship:
             if i._role() == Technicien:
                 check[1] = True
         return check[0] and check[1] == True
+    def display_crew(self):
+        for i in self.__crew:
+            print(f"{i._first_name()} {i._last_name()} {i._role()}\n")
