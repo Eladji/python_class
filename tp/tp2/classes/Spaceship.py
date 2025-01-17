@@ -44,9 +44,10 @@ class Spaceship:
 
     def remove_member(self, Member):
         if Member:
-            self.__crew.pop(Member._first_name())
+            self.__crew.remove(Member)
         else:
             print("le membre que vous essayer d'enlever est invalide")
+        print(f"{Member._first_name} {Member._last_name} a quitté l'équipage")
     def check_preparation(self):
         check = []
         for i in self.__crew:
