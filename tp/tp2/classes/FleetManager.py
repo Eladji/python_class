@@ -163,14 +163,12 @@ class FleetManager:
                         fleet.display_spaceships()
     
     def rename_fleet(self):
-        fleet_name = input("Nom de la flotte: ")
+        fleet = self.get_current_fleet()
         new_name = input("Nouveau nom: ")
         if new_name == "" or len(new_name) <= 0 or len(new_name) > 20:
             print("Nom invalide")
             return
-        for fleet in self.party:
-            if fleet._name == fleet_name:
-                fleet._name(new_name)
+        fleet._name(new_name)
                 
     def add_fleet(self):
         fleet_name = input("Nom de la flotte: ")
@@ -181,77 +179,61 @@ class FleetManager:
         if add_ship == "Non":
             self.add_fleet()
         self.display_fleet_names()
-        fleet_name = input("Nom de la flotte: ")
-        for fleet in self.party:
-            if fleet._name == fleet_name:
-                ship_name = input("Nom du vaisseau: ")
-                if ship_name == "" or len(ship_name) <= 0 or len(ship_name) > 20:
-                    print("Nom invalide")
-                    return
-                ship_type = input("Type de vaisseau: ")
-                if ship_type != "Transport" or ship_type != "Guerre":
-                    return
-                fleet.append_spaceship(Spaceship(ship_name, ship_type))
-                
-    def add_member_to_ship(self):
         fleet = self.get_current_fleet()
-        fleet.display_spaceships()
         ship_name = input("Nom du vaisseau: ")
-        for ship in fleet._spaceship:
-            if ship._name == ship_name:
-                input_last_name = input("Nom du membre: ")
-                if input_last_name == "" or len(input_last_name) <= 0 or len(input_last_name) > 20:
-                    print("Nom invalide")
-                    return
-                input_first_name = input("Prénom du membre: ")
-                if input_first_name == "" or len(input_first_name) <= 0 or len(input_first_name) > 20:
-                    print("Prénom invalide")
-                    return
-                input_age = int(input("Age du membre: "))
-                if input_age <= 0 or input_age > 100:
-                    print("Age invalide")
-                    return
-                input_gender = input("Sexe du membre (Homme, Femme): ")
-                if input_gender != "Homme" or "Femme":
-                    print("Sexe invalide")
-                    return
-                input_Type = input("Type de membre (Operator, Mentalist): ")
-                if input_Type == "Operator":
-                    input_role = input("Role du membre (Pilote, Technicien, Armurier, Marchand, Entretien): ")
-                    if input_role != "Pilote" or input_role != "Technicien" or input_role != "Armurier" or input_role != "Marchand" or input_role != "Entretien":
-                        print("Role invalide")
-                        return
-                    else:
-                        role_class = self.__metier_map.get(input_role)
-                        if role_class:
-                            role_instance = role_class()
-                    new_member = Operator(input_first_name, input_last_name, input_gender, input_age, role_instance)
-                if input_Type == "Mentalist":
-                    new_member = Mentalist(input_first_name, input_last_name, input_gender, input_age)
-                elif input_Type != "Mentalist" or input_Type != "Operator":
-                    print("Type de membre invalide")
-                    return
-                ship.append_member(new_member)
+        if ship_name == "" or len(ship_name) <= 0 or len(ship_name) > 20:
+            print("Nom invalide")
+            return
+        ship_type = input("Type de vaisseau: ")
+        if ship_type != "Transport" or ship_type != "Guerre":
+            return
+        fleet.append_spaceship(Spaceship(ship_name, ship_type))
+        
+    def add_member_to_ship(self):
+        ship = self.get_ship(True)
+        input_last_name = input("Nom du membre: ")
+        if input_last_name == "" or len(input_last_name) <= 0 or len(input_last_name) > 20:
+            print("Nom invalide")
+            return
+        input_first_name = input("Prénom du membre: ")
+        if input_first_name == "" or len(input_first_name) <= 0 or len(input_first_name) > 20:
+            print("Prénom invalide")
+            return
+        input_age = int(input("Age du membre: "))
+        if input_age <= 0 or input_age > 100:
+            print("Age invalide")
+            return
+        input_gender = input("Sexe du membre (Homme, Femme): ")
+        if input_gender != "Homme" or "Femme":
+            print("Sexe invalide")
+            return
+        input_Type = input("Type de membre (Operator, Mentalist): ")
+        if input_Type == "Operator":
+            input_role = input("Role du membre (Pilote, Technicien, Armurier, Marchand, Entretien): ")
+            if input_role != "Pilote" or input_role != "Technicien" or input_role != "Armurier" or input_role != "Marchand" or input_role != "Entretien":
+                print("Role invalide")
+                return
+            else:
+                role_class = self.__metier_map.get(input_role)
+                if role_class:
+                    role_instance = role_class()
+            new_member = Operator(input_first_name, input_last_name, input_gender, input_age, role_instance)
+        if input_Type == "Mentalist":
+            new_member = Mentalist(input_first_name, input_last_name, input_gender, input_age)
+        elif input_Type != "Mentalist" or input_Type != "Operator":
+            print("Type de membre invalide")
+            return
+        ship.append_member(new_member)
                         
     def remove_member_from_ship(self):
-        fleet = self.get_current_fleet()
-        fleet.display_spaceships()
-        ship_name = input("Nom du vaisseau: ")
-        for ship in fleet._spaceship:
-            if ship._name == ship_name:
-                ship_name = input("Nom du vaisseau: ")
-                for ship in fleet._spaceship:
-                    if ship._name == ship_name:
-                        ship.display_crew()
-                        member_name = input("Nom du membre: ")
-                        for member in ship._crew:
-                            if member._first_name == member_name:
-                                ship.remove_member(member)
+        ship = self.get_ship(True)
+        ship.display_crew()
+        member = self.get_member(ship)
+        ship.remove_member(member)
 
     def change_fleet_by_name(self):
-        self.display_fleet_names()
-        fleet_name = input("Nom de la flotte:\n")
-        if not self.change_fleet(fleet_name):
+        fleet = self.get_fleet_by_name()
+        if not self.change_fleet(fleet._name):
             print("Flotte inexistante")
 
     def run(self):
