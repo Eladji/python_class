@@ -42,7 +42,7 @@ class Fleet():
                             case 'Technicien':
                                 nbt_t += 1
                     case 'Mentalist':
-                        nbt_M +=1                  
-            nbt_O += (nbt_p + nbt_t)
-            nbt += nbt_O  + nbt_M
-        print(f"\n Voici les Stats de la flotte:\n_____\nNombre de membres :\n    {nbt} \n    - {nbt_O} Operateurs\n     - {nbt_p} Pilotes\n     - {nbt_t} Techniciens\n - {nbt_M} Mentalistes\n_____\nExpérience:\n   - {nbt_xp} d'xp total\n - {nbt_xp/nbt} d'xp moyenne\n")
+                        nbt_M += 1
+        nbt_O = nbt_p + nbt_t
+        nbt = nbt_O + nbt_M
+        print(f"\n Voici les Stats de la flotte {self.__name}:\n_____\nNombre de membres :\n    {nbt} \n    - {nbt_O} Operateurs\n     - {nbt_p} Pilotes\n     - {nbt_t} Techniciens\n - {nbt_M} Mentalistes\n_____\nExpérience:\n   - {nbt_xp} d'xp total\n - {nbt_xp/nbt if nbt > 0 else 0} d'xp moyenne\n")
