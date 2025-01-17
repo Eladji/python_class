@@ -1,0 +1,205 @@
+{
+    "Flotte": {
+        "Nom": "Galactica",
+        "Nombre de vaisseaux": 5,
+        "Commandant": "Bel Riose"
+    },
+    "Vaisseaux": [
+        {
+            "Nom": "Bayta",
+            "Type": "Marchand",
+            "Etat": "Opérationnel",
+            "Equipage": [
+                {
+                    "Type": "operator",
+                    "Nom": "Gaal Dornick",
+                    "Sexe": "Femme",
+                    "Age": 34,
+                    "Metier": "Technicien"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Salvor Hardin",
+                    "Sexe": "Femme",
+                    "Age": 28,
+                    "Metier": "Armurier"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Hugo Crast",
+                    "Sexe": "Homme",
+                    "Age": 37,
+                    "Metier": "Pilote"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Lathan Devers",
+                    "Sexe": "Homme",
+                    "Age": 46,
+                    "Metier": "Marchand"
+                }
+            ]
+        },
+        {
+            "Nom": "Dark Nebula",
+            "Type": "Guerre",
+            "Etat": "Endommagé",
+            "Equipage": [
+                {
+                    "Type": "operator",
+                    "Nom": "Jagger Fount",
+                    "Sexe": "Homme",
+                    "Age": 41,
+                    "Metier": "Pilote"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Hober Mallow",
+                    "Sexe": "Homme",
+                    "Age": 52,
+                    "Metier": "Pilote"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Limmar Ponyets",
+                    "Sexe": "Homme",
+                    "Age": 43,
+                    "Metier": "Marchand"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Novi Sura",
+                    "Sexe": "Femme",
+                    "Age": 25,
+                    "Metier": "Entretien"
+                },
+                {
+                    "Type": "mentalist",
+                    "Nom": "Tellem Bond",
+                    "Sexe": "Homme",
+                    "Age": 48,
+                    "Mana": 100
+                }
+            ]
+        },
+        {
+            "Nom": "Fearless",
+            "Type": "Guerre",
+            "Etat": "Opérationnel",
+            "Equipage": [
+                {
+                    "Type": "operator",
+                    "Nom": "Fallom",
+                    "Sexe": "Femme",
+                    "Age": 28,
+                    "Metier": "Pilote"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Han Pritcher",
+                    "Sexe": "Homme",
+                    "Age": 31,
+                    "Metier": "Armurier"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Harlan Branno",
+                    "Sexe": "Femme",
+                    "Age": 38,
+                    "Metier": "Entretien"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Lewis Pirenne",
+                    "Sexe": "Homme",
+                    "Age": 34,
+                    "Metier": "Pilote"
+                },
+                {
+                    "Type": "mentalist",
+                    "Nom": "Yanna Seldon",
+                    "Sexe": "Femme",
+                    "Age": 52,
+                    "Mana": 100
+                }
+            ]
+        },
+        {
+            "Nom": "Unimara",
+            "Type": "Marchand",
+            "Etat": "Opérationnel",
+            "Equipage": [
+                {
+                    "Type": "operator",
+                    "Nom": "Eskel Gorov",
+                    "Sexe": "Homme",
+                    "Age": 32,
+                    "Metier": "Marchand"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Bayta Darell",
+                    "Sexe": "Femme",
+                    "Age": 48,
+                    "Metier": "Entretien"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Toran Darell",
+                    "Sexe": "Homme",
+                    "Age": 52,
+                    "Metier": "Technicien"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Stora Gendibal",
+                    "Sexe": "Femme",
+                    "Age": 35,
+                    "Metier": "Technicien"
+                },
+                {
+                    "Type": "mentalist",
+                    "Nom": "Joie",
+                    "Sexe": "Femme",
+                    "Age": 25,
+                    "Mana": 100
+                }
+            ]
+        },
+        {
+            "Nom": "Weinis",
+            "Type": "Marchand",
+            "Etat": "Endommagé",
+            "Equipage": [
+                {
+                    "Type": "operator",
+                    "Nom": "Jord Commasson",
+                    "Sexe": "Homme",
+                    "Age": 53,
+                    "Metier": "Entretien"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Ebling Mis",
+                    "Sexe": "Homme",
+                    "Age": 34,
+                    "Metier": "Entretien"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Munn Compor",
+                    "Sexe": "Homme",
+                    "Age": 27,
+                    "Metier": "Technicien"
+                },
+                {
+                    "Type": "operator",
+                    "Nom": "Yugo Amary",
+                    "Sexe": "Homme",
+                    "Age": 33,
+                    "Metier": "Technicien"
+                }
+            ]
+        }
+    ]
+}
