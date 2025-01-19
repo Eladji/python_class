@@ -59,43 +59,59 @@ class FleetManager:
     """
     without those function you need to repeat the same code in each function to find what you need in the party so yes but no
     """
-    def get_current_fleet(self):
+    def get_current_fleet(self)-> Fleet:
         return self.party[self.current_fleet_index]
     
-    def get_fleet_by_name(self):
+    def get_fleet_by_name(self, retries = 3)-> Fleet:
+        if retries <= 0:
+            print("Maximum retry limit reached. Exiting.")
+            return None
         self.display_fleet_names()
-        fleet_name = input("Nom de la flotte: ")
+        fleet_name = input("Nom de la flotte: \n")
         for fleet in self.party:
             if fleet._name == fleet_name:
                 return fleet
-        return None
+        # If no fleet is found, print the message and return the current fleet
+        print("couldn't find the fleet wanted fleet")
+        return self.get_current_fleet(self, retries=retries-1)  # Retry with decremented counter
     
-    def get_ship(self,current_fleet = None):
-        if current_fleet == None:
-            fleet = self.get_fleet_by_name
-            input_ship = input("Nom du vaisseau: ")
+    def get_ship(self, current_fleet=None, retries=3) -> Spaceship:
+    # Limit the recursion depth to avoid infinite loops
+        if retries <= 0:
+            print("Maximum retry limit reached. Exiting.")
+            return None  # Return None or handle error
+        
+        if current_fleet is None:
+            fleet = self.get_fleet_by_name()
+            fleet.display_spaceship()
+            input_ship = input("Nom du vaisseau: \n")
             for ship in fleet._spaceship:
                 if ship._name == input_ship:
                     return ship
-                else:
-                    return None
-        elif current_fleet:
-            self.get_current_fleet().display_spaceships()
-            input_ship = input("Nom du vaisseau: ")
-            for ship in current_fleet._spaceship:
+                
+            print("couldn't find the wanted Spaceship")
+            return self.get_ship(current_fleet=fleet, retries=retries-1)  # Retry with decremented counter
+        else:
+            self.get_current_fleet().display_spaceship()
+            input_ship = input("Nom du vaisseau: \n")
+            for ship in self.get_current_fleet()._spaceship:
                 if ship._name == input_ship:
                     return ship
-        else:
-            return None
+                print("couldn't find the wanted Spaceship")
+                return self.get_ship(current_fleet=current_fleet, retries=retries-1)  # Retry with decremented counter
+
                 
-    def get_member(self, ship):
+    def get_member(self, ship, retries=3):
+        if retries <= 0:
+            print("Maximum retry limit reached. Exiting.")
+            return None
         ship.display_crew()
-        input_member = input("Nom du membre: ")
+        input_member = input("Nom du membre: \n")
         for member in self.get_ship()._crew:
             if member._first_name == input_member:
                 return member
-            else:
-                return None
+        print("couldn't find the wanted member")
+        return self.get_member(ship, retries=retries-1)
     
     
     def show_menu(self):
@@ -111,9 +127,9 @@ class FleetManager:
         print("7 - vérifier la préparation d'un vaisseau")
         print("8 - afficher l'équipage d'un vaisseau")
         print("9 - ajouter un vaisseau")
-        print("10 - afficher les vaisseaux d'une flotte")
+        print("10 - afficher les vaisseaux de la flotte")
         print("11 - Supprimer un vaisseau")
-        print("6 - Quitter")
+        print("12 - Quitter")
         return input("Votre choix: ")
 
     def input_handler(self):
@@ -143,24 +159,13 @@ class FleetManager:
                 else:
                     print("Le vaisseau n'est pas prêt")
             case "8":
-                self.display_fleet_names()
-                fleet_name = input("Nom de la flotte: ")
-                for fleet in self.party:
-                    if fleet._name == fleet_name:
-                        for ships in fleet._spaceship:
-                            print(ships._name)
-                    ship_name = input("Nom du vaisseau: ")
-                    for ship in fleet._spaceship:
-                        if ship._name == ship_name:
-                            ship.display_crew()
+                self.get_ship(True).display_crew()
             case "9":
                 self.add_ship_to_fleet()
             case "10":
-                self.display_fleet_names()
-                fleet_name = input("Nom de la flotte: ")
-                for fleet in self.party:
-                    if fleet._name == fleet_name:
-                        fleet.display_spaceships()
+                self.get_current_fleet().display_spaceships()
+            case "11":
+                exit(0)
     
     def rename_fleet(self):
         fleet = self.get_current_fleet()
@@ -176,12 +181,12 @@ class FleetManager:
         
     def add_ship_to_fleet(self):
         add_ship = input("Voulez-vous ajouter un vaisseau à une flotte existante ? (Oui, Non): ")
-        if add_ship == "Non":
+        if add_ship == "Non" or add_ship == "non" or add_ship == "N" or add_ship == "n":
             self.add_fleet()
         self.display_fleet_names()
         fleet = self.get_current_fleet()
         ship_name = input("Nom du vaisseau: ")
-        if ship_name == "" or len(ship_name) <= 0 or len(ship_name) > 20:
+        if ship_name == "" or len(ship_name) <= 0 or len(ship_name) > 20 or ship_name in [ship._name for ship in fleet._spaceship]:
             print("Nom invalide")
             return
         ship_type = input("Type de vaisseau: ")
@@ -192,11 +197,11 @@ class FleetManager:
     def add_member_to_ship(self):
         ship = self.get_ship(True)
         input_last_name = input("Nom du membre: ")
-        if input_last_name == "" or len(input_last_name) <= 0 or len(input_last_name) > 20:
+        if input_last_name == "" or len(input_last_name) <= 0 or len(input_last_name) > 20 or input_last_name in [member._last_name for member in ship._crew]:
             print("Nom invalide")
             return
         input_first_name = input("Prénom du membre: ")
-        if input_first_name == "" or len(input_first_name) <= 0 or len(input_first_name) > 20:
+        if input_first_name == "" or len(input_first_name) <= 0 or len(input_first_name) > 20 or input_first_name in [member._first_name for member in ship._crew]:
             print("Prénom invalide")
             return
         input_age = int(input("Age du membre: "))
@@ -229,7 +234,10 @@ class FleetManager:
         ship = self.get_ship(True)
         ship.display_crew()
         member = self.get_member(ship)
-        ship.remove_member(member)
+        if member:
+            ship.remove_member(member)
+        else:
+            print("Membre invalide")
 
     def change_fleet_by_name(self):
         fleet = self.get_fleet_by_name()
