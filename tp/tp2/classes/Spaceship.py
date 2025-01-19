@@ -49,13 +49,14 @@ class Spaceship:
             print("le membre que vous essayer d'enlever est invalide")
         print(f"{Member._first_name} {Member._last_name} a quitté l'équipage")
     def check_preparation(self):
-        check = []
+        check = [False, False]
         for i in self.__crew:
-            if i._role() == Pilote:
-                check[0] = True
-            if i._role() == Technicien:
-                check[1] = True
+            if type(i).__name__ == "Operator":
+                if i._role == Pilote:
+                    check[0] = True
+                if i._role == Technicien:
+                    check[1] = True
         return check[0] and check[1] == True
     def display_crew(self):
         for i in self.__crew:
-            print(f"{i._first_name} {i._last_name} {i._role}\n")
+            print(f"{i._first_name} {i._last_name} { type(i._role).__name__ if  type(i).__name__ == "Operator" else "Mentaliste"}\n")
