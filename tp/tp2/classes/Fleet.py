@@ -31,26 +31,42 @@ class Fleet():
         print(f"{value._name} a quitté la flotte")
 
     def stat(self):
-        nbt = 0
-        nbt_O = 0
-        nbt_p = 0
-        nbt_t = 0
-        nbt_M = 0
-        nbt_xp = 0
+        # Initialize counters
+        total_members = 0
+        total_operators = 0
+        total_pilots = 0
+        total_technicians = 0
+        total_mentalists = 0
+        total_experience = 0
 
-        for Spaceship in self.__spaceship:
-            for member in Spaceship._crew:
+        # Calculate statistics
+        for spaceship in self.__spaceship:
+            for member in spaceship._crew:
                 match type(member).__name__:
                     case 'Operator':
-                        nbt_xp += member._exp
+                        total_experience += member._exp
                         match type(member._role).__name__:
                             case 'Pilote':
-                                nbt_p += 1
+                                total_pilots += 1
                             case 'Technicien':
-                                nbt_t += 1
+                                total_technicians += 1
                     case 'Mentalist':
-                        nbt_M += 1
+                        total_mentalists += 1
 
-        nbt_O = nbt_p + nbt_t
-        nbt = nbt_O + nbt_M
-        print(f"\n Voici les Stats de la flotte {self.__name}:\n_____\nNombre de membres :\n    {nbt} \n    - {nbt_O} Operateurs\n     - {nbt_p} Pilotes\n     - {nbt_t} Techniciens\n - {nbt_M} Mentalistes\n_____\nExpérience:\n   - {nbt_xp} d'xp total\n - {nbt_xp / nbt if nbt > 0 else 0} d'xp moyenne\n")
+        total_operators = total_pilots + total_technicians
+        total_members = total_operators + total_mentalists
+        average_experience = total_experience / total_members if total_members > 0 else 0
+
+        # Display stats with improved formatting
+        print("\n" + "=" * 40)
+        print(f"🌌 Statistiques de la Flotte: {self.__name}")
+        print("=" * 40)
+        print(f"👥 Nombre total de membres: {total_members}")
+        print(f"  ├─ {total_operators} Opérateurs")
+        print(f"  │   ├─ {total_pilots} Pilotes")
+        print(f"  │   └─ {total_technicians} Techniciens")
+        print(f"  └─ {total_mentalists} Mentalistes")
+        print("\n📊 Expérience:")
+        print(f"  ├─ {total_experience} XP total")
+        print(f"  └─ {average_experience:.2f} XP moyenne par membre")
+        print("=" * 40)
