@@ -77,7 +77,7 @@ class FleetManager:
                                 is_operator = True
                                 break
                         if is_operator:
-                            member_to_add = Operator(member["_Member__first_name"], member["_Member__last_name"], member["_Member__gender"], member["_Member__age"], self.__metier_map.get(member["_Operator__role"]["_Role__role"])() if member["_Operator__role"]["_Role__role"] is not None else None)
+                            member_to_add = Operator(member["_Member__first_name"], member["_Member__last_name"], member["_Member__gender"], member["_Member__age"], self.__metier_map.get(member["_Operator__role"]["_Role__role"])() if member["_Operator__role"] is not None else None)
                         else: 
                             member_to_add = Mentalist(member["_Member__first_name"], member["_Member__last_name"], member["_Member__gender"], member["_Member__age"], member["_Mentalist__mana"])
                         ship.append_member(member_to_add)
@@ -231,7 +231,9 @@ class FleetManager:
             case "11":
                 self.remove_spaceship()
             case "12":
-                self.save_data()
+                input_quit = input("Voulez-vous sauvegarder avant de quitter ? (Oui, Non): ")
+                if input_quit == "Oui" or input_quit == "oui" or input_quit == "O" or input_quit == "o":
+                    self.save_data()
                 exit(0)
             case "13":
                 self.save_data()
