@@ -1,10 +1,9 @@
-from classes.FleetManager import FleetManager
-
+# from classes.FleetManager import FleetManager
+from classes.GUI import GUI
 
     
-if __name__ == "__main__":
-    # root = tk.Tk()
-    # app = FleetManagerUI(root)
-    # root.mainloop()    
-    game = FleetManager()
-    game.run()
+if __name__ == "__main__": 
+    GUI = GUI()
+    GUI.run()   
+    # game = FleetManager()
+    # game.run()
