@@ -51,7 +51,7 @@ jobs:
 
       - name: Build with PyInstaller
         run: |
-          pyinstaller --onefile --name=app-macos tp/tp/tp2/main.py
+          pyinstaller --onefile --name=app-macos tp/tp2/main.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
