@@ -21,6 +21,25 @@ class FleetManager:
             "Entretien": Entretien
         }
         self.__party = []
+        self.__current_ship = None
+        self.__current_member = None
+
+    @property
+    def _current_ship(self):
+        return self.__current_ship
+
+    @_current_ship.setter
+    def _current_ship(self, value):
+        self.__current_ship = value
+
+    @property
+    def _current_member(self):
+        return self.__current_member
+
+    @_current_member.setter
+    def _current_member(self, value):
+        self.__current_member = value
+
 
     @property
     def _party(self):
@@ -134,15 +153,19 @@ class FleetManager:
         # If no fleet is found, print the message and return the current fleet
     def stat_party(self):
         self.get_current_fleet().stat()
-            
     
-    def get_ship(self, current_fleet=None, retries=3) -> Spaceship:
+    def test(self, value):
+        print(value)
+    
+    def get_ship(self, current_fleet=None, retries=3, name =None) -> Spaceship:
     # Limit the recursion depth to avoid infinite loops
+        print(name)
         if retries <= 0:
             print("Maximum retry limit reached. Exiting.")
             return None  # Return None or handle error
         
         if current_fleet is None:
+            
             fleet = self.get_fleet_by_name()
             fleet.display_spaceship()
             input_ship = input("Nom du vaisseau: \n")
@@ -153,6 +176,13 @@ class FleetManager:
             print("couldn't find the wanted Spaceship")
             return self.get_ship(current_fleet=fleet, retries=retries-1)  # Retry with decremented counter
         else:
+            if name:
+                for i in self.get_current_fleet()._spaceship:
+                    print(i._name)
+                for ship in self.get_current_fleet()._spaceship:
+                    if ship._name == name:
+                        self.__current_ship = ship
+                        return 
             self.get_current_fleet().display_spaceship()
             input_ship = input("Nom du vaisseau: \n")
             for ship in self.get_current_fleet()._spaceship:

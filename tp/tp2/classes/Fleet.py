@@ -30,7 +30,7 @@ class Fleet():
         self.__spaceship.pop(value._name())
         print(f"{value._name} a quitté la flotte")
 
-    def stat(self):
+    def stat(self) -> list:
         # Initialize counters
         total_members = 0
         total_operators = 0
@@ -56,7 +56,8 @@ class Fleet():
         total_operators = total_pilots + total_technicians
         total_members = total_operators + total_mentalists
         average_experience = total_experience / total_members if total_members > 0 else 0
-
+        average_experience=round(average_experience,2)
+        stats = [total_members, total_operators, total_pilots, total_technicians, total_mentalists, total_experience, average_experience]
         # Display stats with improved formatting
         print("\n" + "=" * 40)
         print(f"🌌 Statistiques de la Flotte: {self.__name}")
@@ -70,3 +71,4 @@ class Fleet():
         print(f"  ├─ {total_experience} XP total")
         print(f"  └─ {average_experience:.2f} XP moyenne par membre")
         print("=" * 40)
+        return stats
