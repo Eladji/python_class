@@ -1,12 +1,13 @@
 from classes.Member import Member
+from classes.Role import Role
 class Operator(Member):
-    def __init__(self, first_name, last_name, gender, age ,Role, exp = 0):
+    def __init__(self, first_name, last_name, gender, age ,Role:Role, exp = 0):
         super().__init__(first_name, last_name, gender, age)
         self.__role = Role
         self.__exp = exp
 
     @property
-    def _role(self):
+    def _role(self)->Role:
         return self.__role
 
     @_role.setter

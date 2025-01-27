@@ -3,10 +3,10 @@ class Role():
     def __init__(self, rep_ship, drive_ship):
         self.__rep_ship = rep_ship
         self.__drive_ship = drive_ship
-        self.__role = None
+        self.__role:str = None
 
     @property
-    def _role(self):
+    def _role(self)->str:
         return self.__role
 
     @_role.setter

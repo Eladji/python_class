@@ -25,9 +25,33 @@ Fleetui{
     
     content-align: center middle;
 }
-#FLeetScreen{
+.textstat{
+    width: 100%;
+    height: auto;
+    padding: 1;
+    margin: 3;
+    
+    content-align: center middle;
+}
+#stat{
     content-align: left middle;
 }
-.stat{
-    content-align: left middle;
+#ship{
+    content-align: right middle;
+}
+.buttonsscreen{
+    width: 50%;
+    height: auto;
+    padding: 1;
+    margin: 3;
+    
+    content-align: right middle;
+}
+#member{
+    width: 100%;
+    height: auto;
+    padding: 1;
+    margin: 3;
+    
+    content-align: center middle;
 }

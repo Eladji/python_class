@@ -15,9 +15,15 @@ class MemberScreen(Screen):
         yield Container(
             Static(fleet_manager._current_member._first_name),
             Static(fleet_manager._current_member._last_name),
-            Static(fleet_manager._current_member._role._role),
-            Static(str(fleet_manager._current_member._exp)),
+                
+            id = "member"
+            
         )
+        if type(fleet_manager._current_member).__name__ == "Mentalist":
+            yield Static(fleet_manager._current_member._mana)
+        elif fleet_manager._current_member._role:
+            yield Static(fleet_manager._current_member._role._role)
+            yield Static(str(fleet_manager._current_member._exp))
         yield Button(label="Retour", id="retour")
         
     def on_button_pressed(self, event: Button.Pressed):
@@ -46,6 +52,7 @@ class ShipScreen(Screen):
             Static(fleet_manager._current_ship._Type),
             Static(fleet_manager._current_ship._state),
             HorizontalGroup(Memberui()),
+            id = "ship"
             # *[Button(label=f"{i._first_name} {i._last_name}", id=i._first_name, classes="buttons") for i in fleet_manager._current_ship._crew],
         )
         yield Button(label="Retour", id="retour")
@@ -55,10 +62,10 @@ class ShipScreen(Screen):
             self.app.pop_screen()
         else:
             print("nut")
-class Shipui(VerticalGroup):
+class Shipui(HorizontalGroup):
     def compose(self):
         for i in fleet_manager.get_current_fleet()._spaceship:
-            yield Button(label=i._name, id=str(i._name).replace(" ", "_"))
+            yield Button(label=i._name, id=str(i._name).replace(" ", "_"), classes="buttonsscreen")
             print(i._name)
         
     def on_button_pressed(self, event: Button.Pressed):
@@ -87,14 +94,15 @@ class FLeetScreen(Screen):
               Static(f"Nombre de mentalistes : {self.stat[4]}", classes="textstat"),
               Static(f"Expérience totale : {self.stat[5]}", classes="textstat"),
               Static(f"Expérience moyenne : {self.stat[6]}", classes="textstat"),
-              HorizontalGroup(Shipui()),
               id="stat",
          ) 
+        yield Container(VerticalGroup(Shipui()), id="ship")
         yield Button(label="Retour", id="retour")
    
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "retour":
             self.app.pop_screen()
+            
 class Fleetui(VerticalGroup, Static):
     keybind = ("f", "change_fleet", "Changer de flotte")
     
