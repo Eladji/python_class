@@ -24,7 +24,7 @@ class Spaceship:
         self.__Type = value
 
     @property
-    def _crew(self):
+    def _crew(self) -> list:
         return self.__crew
 
     @property

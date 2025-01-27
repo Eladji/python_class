@@ -10,13 +10,43 @@ fleet_manager = FleetManager()
 fleet_manager.load_data("component/save/")
 ship = None
 member = None
+class MemberScreen(Screen):
+    def compose(self):
+        yield Container(
+            Static(fleet_manager._current_member._first_name),
+            Static(fleet_manager._current_member._last_name),
+            Static(fleet_manager._current_member._role._role),
+            Static(str(fleet_manager._current_member._exp)),
+        )
+        yield Button(label="Retour", id="retour")
+        
+    def on_button_pressed(self, event: Button.Pressed):
+        if event.button.id == "retour":
+            self.app.pop_screen()
+        else:
+            print("nut")
+class Memberui(VerticalGroup):
+    def compose(self):
+            for j in fleet_manager._current_ship._crew:
+                yield Button(label=f"{j._first_name} {j._last_name}", id=j._first_name, classes="buttons")
+        
+    def on_button_pressed(self, event: Button.Pressed):
+        member_name = event.button.id
+        print(f"Selected member: {member_name}")
+        fleet_manager.get_member(ship=fleet_manager._current_ship, name=member_name)
+        # if fleet_manager._current_member:
+        print(f"Member found: {fleet_manager._current_member._first_name} {fleet_manager._current_member._last_name}")
+        self.app.push_screen(MemberScreen())  # Pass member to MemberScreen
+        # else:
+        print("Member not found!")
 class ShipScreen(Screen):
     def compose(self):
         yield Container(
             Static(fleet_manager._current_ship._name),
             Static(fleet_manager._current_ship._Type),
             Static(fleet_manager._current_ship._state),
-            *[Button(label=f"{i._first_name} {i._last_name}", id=i._first_name, classes="buttons") for i in fleet_manager._current_ship._crew],
+            HorizontalGroup(Memberui()),
+            # *[Button(label=f"{i._first_name} {i._last_name}", id=i._first_name, classes="buttons") for i in fleet_manager._current_ship._crew],
         )
         yield Button(label="Retour", id="retour")
         

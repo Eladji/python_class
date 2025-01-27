@@ -192,10 +192,15 @@ class FleetManager:
             return self.get_ship(current_fleet=current_fleet, retries=retries-1)  # Retry with decremented counter
 
                 
-    def get_member(self, ship, retries=3):
+    def get_member(self, ship:Spaceship, retries=3, name=None):
         if retries <= 0:
             print("Maximum retry limit reached. Exiting.")
             return None
+        if name:
+                for i in ship._crew:
+                    if i._first_name == name:
+                        self.__current_member = i
+                        return 
         ship.display_crew()
         input_member = input("Nom du membre: \n")
         for member in ship._crew:
