@@ -59,4 +59,4 @@ class Spaceship:
         return check[0] and check[1] == True
     def display_crew(self):
         for i in self.__crew:
-            print(f"{i._first_name} {i._last_name} { type(i._role).__name__ if  type(i).__name__ == "Operator" else "Mentaliste"}\n")
+            print(f"{i._first_name} {i._last_name} { type(i._role).__name__ if type(i).__name__ == 'Operator' else 'Mentaliste'}\n")
